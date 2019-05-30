@@ -4,6 +4,7 @@ from django.conf import settings
 
 urlpatterns = [
     url(r'^$', views.home,name ='home'),
+    url(r'^$',views.signup, name='signup'),
     url(r'^index', views.index, name = 'index'),
     url(r'user/(?P<username>\w+)', views.profile,name='profile'),
     url(r'^upload/$', views.upload_image, name='upload_image'),

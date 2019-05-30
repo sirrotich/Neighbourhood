@@ -1,0 +1,85 @@
+{%extends "registration/base.html"%}
+{% load bootstrap4 %}
+{% load static %}
+{% load material_form %}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+</head>
+<!-- Grid container -->
+<div class="container my-5">
+    <!--Grid row-->
+    <div class="row d-flex justify-content-center">
+        <!-- Mobile box -->
+        <div class="mobile-box view">
+            <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/6-col/img (122).jpg" class="bg-image"
+                alt="smaple image">
+            <div class="mask gradient-mask">
+                <!-- Navbar -->
+                <div class="mobile-navbar d-flex justify-content-between p-2">
+                    <div>
+                        <span>AWARDS</span>
+                    </div>
+                    <span>SIGNUP</span>
+                    <div>
+                        <small>100% LEGIT</small>
+                    </div>
+                </div>
+                <!-- Navbar -->
+                <!-- <a href="/accounts/login/" class="float-right font-weight-bold mr-4 mt-2">LOGIN
+                </a> -->
+                {% if registered %}
+                <h1 class="float-center font-weight-bold mr-4 mt-2">Thank you for registering!</h1>
+                {% else %}
+                <!-- Content -->
+                <form action="/accounts/register/" method="post">
+                    {% csrf_token %}
+                    <div class="mt-5 p-4 text-center animated fadeIn">
+                        <div class="md-form form-md">
+                            <!-- <i class="fas fa-user prefix"></i> -->
+                            <input type="text" id="username-input" class="form-control form-control-lg text-white"
+                                name='username'>
+                            <label for="username-input">username</label>
+                        </div>
+                        <div class="md-form form-md">
+                            <!-- <i class="fas fa-envelope prefix"></i> -->
+                            <input type="email" id="email-input" class="form-control form-control-lg text-white"
+                                name="email">
+                            <label for="email-input">E-mail</label>
+                        </div>
+                        <div class="md-form form-md">
+                            <!-- <i class="fas fa-lock prefix"></i> -->
+                            <input type="password" id="password-input" class="form-control form-control-lg text-white"
+                                name="password">
+                            <label for="password-input">Password</label>
+                        </div>
+                        <div class="md-form form-md">
+                            <!-- <i class="fas fa-lock prefix"></i> -->
+                            <input type="password" id="password2-input" class="form-control form-control-lg text-white"
+                                name="password">
+                            <label for="password2-input">Confirm</label>
+                        </div>
+                        {% endif %}
+                </form>
+                <!-- <a href="">Forgot password?</a> -->
+                <!-- Sign in button -->
+                <input class="btn btn-outline-white btn-rounded btn-block my-4 waves-light z-depth-0" type="submit"
+                    value="Sign
+                        UP">
+                <input type="hidden" name="next" value="{{next}}">
+                <!-- Sign in button -->
+                <!-- <button class="btn btn-outline-white btn-rounded btn-block my-4 waves-light z-depth-0"
+                        type="submit"><i class="fab fa-facebook-f mr-2"></i>Facebook</button> -->
+                <!-- Register -->
+                <p>Already a member?
+                    <a href="/accounts/login/" class="font-weight-bold">LOGIN</a>
+                </p>
+            </div>
+            <!-- Content -->
+        </div>
+    </div>
+    <!-- Mobile box -->
+</div>
+<!--Grid row-->
+</div>
+{% endblock %}
