@@ -6,90 +6,74 @@
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
 </head>
 <!-- Full Page Intro -->
-<div class="view full-page-intro"
-    style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/78.jpg'); background-repeat: no-repeat; background-size: cover;">
-    <!-- Mask & flexbox options-->
-    <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
-        <!-- Content -->
-        <div class="container">
-            <!--Grid row-->
-            <div class="row wow fadeIn">
-                <!--Grid column-->
-                <div class="col-md-6 mb-4 white-text text-center text-md-left">
-                    <h1 class="display-4 font-weight-bold">AWWARDS. The Best Website Reviewer </h1>
-                    <hr class="hr-light">
-                    <p>
-                        <strong>Best & free website rater from different people from all societies of life</strong>
-                    </p>
-                    <p class="mb-4 d-none d-md-block">
-                        <strong>You can login and rate the posted websites</strong>
-                    </p>
-                    <a href="/accounts/register/" class="btn btn-indigo btn-lg">Sign UP
-                        <i class="fas fa-graduation-cap ml-2"></i>
-                    </a>
-                </div>
-                <!--Grid column-->
-                <!--Grid column-->
-                <div class="col-md-6 col-xl-5 mb-4">
-                    <!--Card-->
-                    <div class="card">
-                        <!--Card content-->
-                        <div class="card-body">
-                            <!-- Form -->
-                            <form action="/accounts/login/" method="post" >
-                                {% csrf_token %}
-                                <!-- Heading -->
-                                <h3 class="dark-grey-text text-center">
-                                    <strong>LOGIN </strong>
-                                </h3>
-                                <hr>
-                                <div class="md-form">
-                                    <i class="fas fa-user prefix"></i>
-                                    <input type="text" id="form3" class="form-control validate" name='username'
-                                        >
-                                    <label for="form3">username</label>
-                                </div>
-                                <div class="md-form">
-                                    <i class="fas fa-lock prefix"></i>
-                                    <input type="password" id="inputValidationEx2" class="form-control validate"
-                                        name="password" >
-                                    <label for="inputValidationEx2" data-error="wrong" data-success="">Type your
-                                        password</label>
-                                </div>
-                                <fieldset class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="checkbox1" type="submit">
-                                    <label for="checkbox1" class="form-check-label dark-grey-text">Stay Signed
-                                        in</label>
-                                </fieldset>
-                                <div class="text-center">
-                                    <hr>
-                                    <input class="btn btn-indigo" type="submit" value="LOGIN">
-                                    <input type="hidden" name="next" value="{{ next }}" />
-                                </div>
-                                {% if form.errors %}
-                                <p class=" label label-danger">
-                                    Your username and password didn't match.
-                                    Please try again.
-                                </p>
-                                {% endif %}
-                            </form>
-                            <!-- Form -->
-                        </div>
-                    </div>
-                    <!--/.Card-->
-                </div>
-                <!--Grid column-->
-            </div>
-            <!--Grid row-->
+<!-- Modal -->
+<div class="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog form-dark" role="document">
+    <!--Content-->
+    <div class="modal-content card card-image" style="background-image: url('https://mdbootstrap.com/img/Photos/Others/pricing-table%20(7).jpg');">
+      <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
+        <!--Header-->
+        <div class="modal-header text-center pb-4">
+          <h3 class="modal-title w-100 white-text font-weight-bold" id="myModalLabel"><strong>SIGN</strong> <a
+              class="green-text font-weight-bold"><strong> UP</strong></a></h3>
+          <button type="button" class="close white-text" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-        <!-- Content -->
+        <!--Body-->
+        <div class="modal-body">
+          <!--Body-->
+          <div class="md-form mb-5">
+            <input type="email" id="Form-email5" class="form-control validate white-text">
+            <label data-error="wrong" data-success="right" for="Form-email5">Your email</label>
+          </div>
+
+          <div class="md-form pb-3">
+            <input type="password" id="Form-pass5" class="form-control validate white-text">
+            <label data-error="wrong" data-success="right" for="Form-pass5">Your password</label>
+            <div class="form-group mt-4">
+              <input class="form-check-input" type="checkbox" id="checkbox624">
+              <label for="checkbox624" class="white-text form-check-label">Accept the<a href="#" class="green-text font-weight-bold">
+                  Terms and Conditions</a></label>
+            </div>
+          </div>
+
+          <!--Grid row-->
+          <div class="row d-flex align-items-center mb-4">
+
+            <!--Grid column-->
+            <div class="text-center mb-3 col-md-12">
+              <button type="button" class="btn btn-success btn-block btn-rounded z-depth-1">Sign up</button>
+            </div>
+            <!--Grid column-->
+
+          </div>
+          <!--Grid row-->
+
+          <!--Grid row-->
+          <div class="row">
+
+            <!--Grid column-->
+            <div class="col-md-12">
+              <p class="font-small white-text d-flex justify-content-end">Have an account? <a href="#" class="green-text ml-1 font-weight-bold">
+                  Log in</a></p>
+            </div>
+            <!--Grid column-->
+
+          </div>
+          <!--Grid row-->
+
+        </div>
+      </div>
     </div>
-    <!-- Mask & flexbox options-->
+    <!--/.Content-->
+  </div>
 </div>
-<!-- Full Page Intro -->
-<!--Main layout-->
-<!--/.Footer-->
-<script>
-    new WOW().init()
-</script>
+<!-- Modal -->
+
+<div class="text-center">
+  <a href="" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#darkModalForm">Launch modal
+    register Form</a>
+</div>
 {% endblock %}

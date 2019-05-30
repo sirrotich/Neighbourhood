@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'pyuploadcare.dj',
     'bootstrap4',
+    'crispy_forms',
     'neighbours.apps.NeighboursConfig',
     'django.contrib.admin',
     'django.contrib.auth',

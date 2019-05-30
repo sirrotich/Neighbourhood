@@ -12,7 +12,6 @@ from .forms import SignupForm, ImageForm, ProfileForm, CommentForm
 # from .tokens import account_activation_token
 from .models import Image, Profile, Comments
 # Create your views here.
-@login_required(login_url='/accounts/login')
 def home(request):
     return render(request, 'home.html')
 
