@@ -1,7 +1,10 @@
 {% extends 'base.html' %} 
 
 {% block content %}
-
+<br>
+<br>
+<br>
+<br>
 <div class="row" style="background-image : url('https://www.cityhoodapp.com/wp-content/themes/cityhood/assets/img/share.png');background-size:cover; height: 400px;">
     <!-- Rotating card -->
 <div class="card-wrapper" style="max-height: 50px; width: 300px; margin-left: 900px; margin-top: 15px;">
@@ -23,7 +26,8 @@
         <!-- Content -->
         <div class="card-body">
           <div class="text-center">
-            <a href="" class="btn btn-default btn-rounded" data-toggle="modal" data-target="#darkModalForm">REGISTER</a>
+            <h6 style="color:blue;">To join hoods below ,register first</h6>
+            <a href="{% url 'signup' %}" class="btn btn-default btn-rounded" >REGISTER</a>
           </div>
         </div>
       </div>
@@ -34,74 +38,6 @@
   <!-- Rotating card -->
 
 </div>
-<div class="modal fade" id="darkModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog form-dark" role="document">
-    <!--Content-->
-    <div class="modal-content card card-image" style="background-image: url('https://mdbootstrap.com/img/Photos/Others/pricing-table%20(7).jpg');">
-      <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
-        <!--Header-->
-        <div class="modal-header text-center pb-4">
-          <h3 class="modal-title w-100 white-text font-weight-bold" id="myModalLabel"><strong>SIGN</strong> <a
-              class="green-text font-weight-bold"><strong> UP</strong></a></h3>
-          <button type="button" class="close white-text" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <!--Body-->
-        
-        <div class="modal-body">
-          <!--Body-->
-          <form action="/accounts/register/" method="post">
-            {% csrf_token %}
-          <div class="md-form md-5">
-              <h6 data-error="wrong" data-success="right" for="Form-pass5" style="color:white">Username</h6>
-            <input type="name" id="Form-pass5" class="form-control validate white-text">
-          </div>
-          <div class="md-form mb-5">
-              <h6 data-error="wrong" data-success="right" for="Form-email5">Your email</h6>
-            <input type="email" id="Form-email5" class="form-control validate white-text">
-          </div>
-
-          <div class="md-form pb-3">
-              <h6 data-error="wrong" data-success="right" for="Form-pass5">Your password</h6>
-            <input type="password" id="Form-pass5" class="form-control validate white-text">
-            
-          </div>
-          <div class="md-form pb-3">
-              <h6 data-error="wrong" data-success="right" for="Form-pass5">Confirm Password</h6>
-            <input type="password" id="Form-pass5" class="form-control validate white-text">
-          </div>
-          </form>
-          <!--Grid row-->
-          <div class="row d-flex align-items-center mb-4">
-
-            <!--Grid column-->
-            <div class="text-center mb-3 col-md-12">
-              <input type="submit" class="btn btn-success btn-block btn-rounded z-depth-1" value="SIGN UP">
-              <input type="hidden" name="next" value="{{next}}">
-            </div>
-            <!--Grid column-->
-
-          </div>
-          <!--Grid row-->
-
-          <!--Grid row-->
-          <div class="row">
-
-            <!--Grid column-->
-            <div class="col-md-12">
-              <p class="font-small white-text d-flex justify-content-end">Have an account? <a href="#" class="green-text ml-1 font-weight-bold">
-                  Log in</a></p>
-            </div>
-            <!--Grid column-->
-
-          </div>
-          <!--Grid row-->
-
-        </div>
-       
-      </div>
     </div>
     <!--/.Content-->
   </div>
@@ -109,6 +45,56 @@
 <br>
 <br>
 
+<div class="row">
+    <div class="col-md-4">
+    <div class="card card-image" style="background-image: url(https://freerangestock.com/sample/78965/hands-in-sky-means-togetherness-and-close-intimacy.jpg);">
+  
+      <!-- Content -->
+      <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+        <div>
+          <h5 class="pink-text"><i class="fas fa-chart-pie"></i> KAMPALA</h5>
+          <h3 class="card-title pt-2"><strong>The kampala</strong></h3>
+          <p>The Kampla located in the south west region with over 200 members A great business platform with networking power.</p>
+          <a class="btn btn-pink"><i class="fas fa-clone left"></i>Join Hood</a>
+        </div>
+      </div>
+    
+    </div>
+    <!-- Card -->
+  </div>
+  <div class="col-md-4">
+      <div class="card card-image" style="background-image: url(http://cdn1.kabbalah.com/kabbalah.com/images/articles/16-8-4-karen-berg-the-power-of-togetherness.jpg);">
+    
+        <!-- Content -->
+        <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+          <div>
+            <h5 class="pink-text"><i class="fas fa-chart-pie"></i>MOMBASA</h5>
+            <h3 class="card-title pt-2"><strong>This is the card title</strong></h3>
+            <p>The mombasa located in the eastern part a great ride place with over 120 members and car enthusiasts more of a business.</p>
+            <a href="index" class="btn btn-pink"><i class="fas fa-clone left"></i>Join Hood</a>
+          </div>
+        </div>
+      
+      </div>
+      <!-- Card -->
+    </div>
+    <div class="col-md-4">
+        <div class="card card-image" style="background-image: url(https://leaderonomics.com/wp-content/uploads/2014/11/togetherness_cropped-e1415761472677.jpg);">
+      
+          <!-- Content -->
+          <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
+            <div>
+              <h5 class="pink-text"><i class="fas fa-chart-pie"></i>CAPE-TWON</h5>
+              <h3 class="card-title pt-2"><strong>The Cape Town</strong></h3>
+              <p>The cape town region has an exclusive region for everyone with small and large scale businness and with ober 320 members.</p>
+              <a class="btn btn-pink"><i class="fas fa-clone left"></i>Join Hood</a>
+            </div>
+          </div>
+        
+        </div>
+        <!-- Card -->
+      </div>
+  </div>
 
 <div class="row" style="background-image: url('https://desirayl.files.wordpress.com/2018/02/togetherness.jpg?w=863'); background-repeat: no-repeat; background-size: cover; background-attachment: fixed;">
   <div class="welcome" style="height: 300px;text-align: center;margin:0 auto;">
@@ -127,56 +113,7 @@
 
 <br>
 <br>
-<div class="row">
-  <div class="col-md-4">
-  <div class="card card-image" style="background-image: url(https://freerangestock.com/sample/78965/hands-in-sky-means-togetherness-and-close-intimacy.jpg);">
 
-    <!-- Content -->
-    <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
-      <div>
-        <h5 class="pink-text"><i class="fas fa-chart-pie"></i> KAMPALA</h5>
-        <h3 class="card-title pt-2"><strong>The kampala</strong></h3>
-        <p>The Kampla located in the south west region with over 200 members A great business platform with networking power.</p>
-        <a class="btn btn-pink"><i class="fas fa-clone left"></i>Join Hood</a>
-      </div>
-    </div>
-  
-  </div>
-  <!-- Card -->
-</div>
-<div class="col-md-4">
-    <div class="card card-image" style="background-image: url(http://cdn1.kabbalah.com/kabbalah.com/images/articles/16-8-4-karen-berg-the-power-of-togetherness.jpg);">
-  
-      <!-- Content -->
-      <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
-        <div>
-          <h5 class="pink-text"><i class="fas fa-chart-pie"></i>MOMBASA</h5>
-          <h3 class="card-title pt-2"><strong>This is the card title</strong></h3>
-          <p>The mombasa located in the eastern part a great ride place with over 120 members and car enthusiasts more of a business.</p>
-          <a class="btn btn-pink"><i class="fas fa-clone left"></i>Join Hood</a>
-        </div>
-      </div>
-    
-    </div>
-    <!-- Card -->
-  </div>
-  <div class="col-md-4">
-      <div class="card card-image" style="background-image: url(https://leaderonomics.com/wp-content/uploads/2014/11/togetherness_cropped-e1415761472677.jpg);">
-    
-        <!-- Content -->
-        <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
-          <div>
-            <h5 class="pink-text"><i class="fas fa-chart-pie"></i>CAPE-TWON</h5>
-            <h3 class="card-title pt-2"><strong>The Cape Town</strong></h3>
-            <p>The cape town region has an exclusive region for everyone with small and large scale businness and with ober 320 members.</p>
-            <a class="btn btn-pink"><i class="fas fa-clone left"></i>Join Hood</a>
-          </div>
-        </div>
-      
-      </div>
-      <!-- Card -->
-    </div>
-</div>
 
 <br>
 <br>
