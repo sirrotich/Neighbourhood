@@ -50,7 +50,6 @@ def profile(request,username):
 
     return render(request, 'profile/profile.html',{'title':title, 'profile':profile,'profile_details':profile_details,'images':images})
 
-
 @login_required(login_url='/accounts/login')
 def upload_image(request):
     if request.method == 'POST':
