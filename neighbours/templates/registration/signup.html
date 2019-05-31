@@ -3,23 +3,22 @@
 
 {% block content %}
 
-<div class="container-fluid" style='background-color:#FAFAFA;'>
+<div class="container-fluid" style="background-image:url('https://images.pexels.com/photos/414144/pexels-photo-414144.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');background-repeat:no-repeat; background-size:cover;" >
+    <br>
+    <br>
+    <br>
     <!-- empty div -->
-    <div class='row'style="background-image:url('https://img.maximummedia.ie/her_ie/eyJkYXRhIjoie1widXJsXCI6XCJodHRwOlxcXC9cXFwvbWVkaWEtaGVyLm1heGltdW1tZWRpYS5pZS5zMy5hbWF6b25hd3MuY29tXFxcL3dwLWNvbnRlbnRcXFwvdXBsb2Fkc1xcXC8yMDE1XFxcLzAyXFxcLzExMTAyNjE3XFxcL25laWdoYm91cnMuanBnXCIsXCJ3aWR0aFwiOjc2NyxcImhlaWdodFwiOjQzMSxcImRlZmF1bHRcIjpcImh0dHBzOlxcXC9cXFwvd3d3Lmhlci5pZVxcXC9hc3NldHNcXFwvaW1hZ2VzXFxcL2hlclxcXC9uby1pbWFnZS5wbmc_aWQ9YjYzYjA3MWIxM2EwZDk0ZWM2MTNcIixcIm9wdGlvbnNcIjpbXX0iLCJoYXNoIjoiNGFhZjM5ZDE4NTM0ZjUzZDQ0NGIyMzkxMjUwMjQ5MDE2YmZjOTkzZSJ9/neighbours.jpg');background-repeat:no-repeat; background-size:cover;" >
-        <div class='col-md-2 col-xs-2 col-sm-2'>
-        </div>
-        <div class='col-md-4 col-xs-4 col-sm-4 phone'>
-            <div class='content'></div>
-       </div>
-       <div class='col-md-4 col-xs-4 col-sm-4'>
-       <div class="panel-body card register-card">
-           <h2 class='header'>City-Hood<h2>
-           <h5 style='color:grey;text-align:center;font-size:15px;'><strong>Sign up</strong></h5>
+    <div class='row'>
+       <div class='col-md-5' style="margin-left: 400px;">
+       <div class="panel-body card register-card" style="background-image:url('https://images.pexels.com/photos/132037/pexels-photo-132037.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');background-size:cover;background-repeat:no-repeat;">
+           <div style="color:black;">
+           <h2 class='header' style="color: white;font-family: Billabong, cursive;">City-Hood<h2>
+           <h5 style='color:black;text-align:center;font-size:50px;font-family: Billabong, cursive;'><strong>Sign up</strong></h5>
          <form  action="/accounts/register/" method="post">
                {%csrf_token%}
                {% for field in form %}
                <div class='fieldWrapper'>
-                   <h5 style='text-align:center;font-family:Roboto sans-serif;font-size:14px;'>{{field.label}}</h5>
+                   <h5 style='text-align:center;font-family: Billabong, cursive;font-size:27px;'>{{field.label}}</h5>
 
                    <p style='width:100%;text-align:center;'>{{field}}</p>
                    </div>
@@ -28,7 +27,7 @@
                    {% endfor %}
                {% endfor %}
                
-             <input type="submit" class="btn btn-primary btn-sm" value="Sign Up" style='text-align:center;font-family:Roboto, sans-serif;font-size:14px; width:100%;margin-top:20px;'>
+             <input type="submit" class="btn btn-primary btn-sm" value="Sign Up" style='text-align:center;margin-left: 210px;font-size:17px;margin-top:20px;'>
            </form>
 
 
@@ -43,10 +42,10 @@
         
         <div class='col-md-2 col-xs-2 col-sm-2'>
         </div>
-        </div>
 
           
-          
+          </div>
    </div>
-
+   </div>
+</div>
 {% endblock %}
