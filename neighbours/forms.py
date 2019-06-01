@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Image, Profile, Comments
+from .models import Post, Profile, Comments
 from pyuploadcare.dj.forms import FileWidget
 from pyuploadcare.dj.models import ImageField
 
@@ -13,9 +13,9 @@ class SignupForm(UserCreationForm):
         model = User
         fields = ('username', 'email', 'password1', 'password2')
 
-class ImageForm(forms.ModelForm):
+class PostForm(forms.ModelForm):
     class Meta:
-        model = Image
+        model = Post
         exclude = ['likes', 'post_date', 'profile']
 
 class ProfileForm(forms.ModelForm):
@@ -26,4 +26,4 @@ class ProfileForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comments
-        exclude = ['image', 'user']
+        exclude = ['post', 'user']

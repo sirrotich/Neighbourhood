@@ -7,10 +7,11 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.template.loader import render_to_string
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from .forms import SignupForm, ImageForm, ProfileForm, CommentForm
+from .forms import SignupForm, PostForm, ProfileForm, CommentForm
 # from .emails import send_activation_email
 # from .tokens import account_activation_token
-from .models import Image, Profile, Comments
+from .models import Post, Profile, Comments
+from  django.contrib import messages
 # Create your views here.
 
 def home(request):
@@ -18,7 +19,9 @@ def home(request):
 
 @login_required(login_url='/accounts/login')
 def index(request):
-    return render(request, 'index.html')
+    posts = Post.get_all_posts()
+
+    return render(request, 'index.html',{'posts':posts})
 
 def signup(request):
     if request.user.is_authenticated():
@@ -45,25 +48,25 @@ def profile(request,username):
     except:
         profile_details = Profile.filter_by_id(profile.id)
     
-    images = Image.get_profile_images(profile.id)
+    posts = Post.get_profile_posts(profile.id)
     title = f'@{profile.username} Hood Updates'
 
-    return render(request, 'profile/profile.html',{'title':title, 'profile':profile,'profile_details':profile_details,'images':images})
+    return render(request, 'profile/profile.html',{'title':title, 'profile':profile,'profile_details':profile_details,'posts':posts})
 
 @login_required(login_url='/accounts/login')
-def upload_image(request):
+def upload_post(request):
     if request.method == 'POST':
-        form = ImageForm(request.POST, request.FILES)
+        form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             upload = form.save(commit=False)
             upload.profile = request.user
-            # print(f'image is {upload.image}')
+            # print(f'post is {upload.post}')
             upload.save()
             return redirect('profile', username=request.user)
     else:
-        form = ImageForm()
+        form = PostForm()
     
-    return render(request, 'profile/upload_image.html', {'form':form})
+    return render(request, 'profile/upload_post.html', {'form':form})
 
 @login_required(login_url='/accounts/login')
 def edit_profile(request):
@@ -80,22 +83,22 @@ def edit_profile(request):
     return render(request, 'profile/edit_profile.html', {'form':form})
 
 @login_required(login_url='/accounts/login')
-def single_image(request, image_id):
-    image = Image.get_image_id(image_id)
-    comments = Comments.get_comments_by_images(image_id)
+def single_post(request, post_id):
+    post = Post.get_post_id(post_id)
+    comments = Comments.get_comments_by_posts(post_id)
 
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = form.save(commit=False)
-            comment.image = image
+            comment.post = post
             comment.user = request.user
             comment.save()
-            return redirect('single_image', image_id=image_id)
+            return redirect('single_post', post_id=post_id)
     else:
         form = CommentForm()
         
-    return render(request, 'image.html', {'image':image, 'form':form, 'comments':comments})
+    return render(request, 'post.html', {'post':post, 'form':form, 'comments':comments})
 
 def search(request):
     if 'search' in request.GET and request.GET['search']:
@@ -107,3 +110,5 @@ def search(request):
     else:
         message = 'Enter term to search'
         return render(request, 'search.html', {'message':message})
+
+

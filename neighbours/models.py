@@ -29,11 +29,11 @@ class Profile(models.Model):
         return profile
 
 
-class Image(models.Model):
+class Post(models.Model):
     # image_pic = models.ImageField(upload_to = 'p/', default='Image')
     photo = ImageField(blank=True, manual_crop='800x800')
-    image_name = models.CharField(max_length = 50)
-    image_caption = HTMLField(blank=True)
+    post_name = models.CharField(max_length = 50)
+    post_caption = HTMLField(blank=True)
     post_date = models.DateTimeField(auto_now=True)
     likes = models.BooleanField(default=False)
     profile = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -41,7 +41,7 @@ class Image(models.Model):
     class Meta:
         ordering = ('-post_date',)
 
-    def save_image(self):
+    def save_post(self):
         self.save()
     
     @classmethod
@@ -49,30 +49,30 @@ class Image(models.Model):
         pass
     
     @classmethod
-    def get_image_id(cls, id):
-        image = Image.objects.get(pk=id)
-        return image
+    def get_post_id(cls, id):
+        post = Post.objects.get(pk=id)
+        return post
     
     @classmethod
-    def get_profile_images(cls, profile):
-        images = Image.objects.filter(profile__pk = profile)
-        return images
+    def get_profile_posts(cls, profile):
+        posts = Post.objects.filter(profile__pk = profile)
+        return posts
     
     @classmethod
-    def get_all_images(cls):
-        images = Image.objects.all()
-        return images
+    def get_all_posts(cls):
+        posts = Post.objects.all()
+        return posts
 
 class Comments(models.Model):
     comment = HTMLField()
     posted_on = models.DateTimeField(auto_now=True)
-    image = models.ForeignKey(Image, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def save_comment(self):
         self.save()
     
     @classmethod
-    def get_comments_by_images(cls, id):
-        comments = Comments.objects.filter(image__pk = id)
+    def get_comments_by_posts(cls, id):
+        comments = Comments.objects.filter(post__pk = id)
         return comments

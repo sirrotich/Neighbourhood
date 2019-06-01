@@ -29,12 +29,12 @@
                     </ul>
                     <ul class="list-inline">
                         <li class="list-inline-item">
-                            <span class="font-weight-bold">{{images|length}} </span> Posts
+                            <span class="font-weight-bold">{{posts|length}} </span> Posts
                         </li>
                     </ul>
                     <p class="font3">{{profile_details.bio|safe}}</p>
                     {% if profile.username == user.username %}
-                    <p><a href="{% url 'upload_image' %}" class="btn btn-info">POST</a></p>
+                    <p><a href="{% url 'upload_post' %}" class="btn btn-info">POST</a></p>
                     {% endif %} 
                 </div>
             </div>
@@ -43,13 +43,13 @@
     <hr>    
     <h3 style="text-align: center;">Your Posts</h3>
     <div class="row user-images">
-        {% for img in images %}
+        {% for img in posts %}
         <div class="col-md-4 images">
             <img src="{{img.photo.cdn_url}}" alt="Image">
         </div>
         {% empty %}
         <div class="col-md-12">
-            <h2> No Uploaded images</h2>
+            <h2> No Uploaded posts</h2>
         </div>
         {% endfor %}
     </div>

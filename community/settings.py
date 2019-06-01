@@ -111,7 +111,7 @@ WSGI_APPLICATION = 'community.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'neighbourhood',
+        'NAME': 'neighbour',
         'USER': 'kipngeno',
         'PASSWORD':'1234',
     }
