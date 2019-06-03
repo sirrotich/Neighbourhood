@@ -5,8 +5,11 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^$', views.home,name ='home'),
+    url(r'^home', views.home,name ='home'),
     url(r'^signup',views.signup, name='signup'),
     url(r'^index', views.index, name = 'index'),
+    url(r'^kampala', views.kampala, name = 'kampala'),
+    url(r'^capetown', views.index, name = 'capetown'),
     url(r'user/(?P<username>\w+)', views.profile,name='profile'),
     url(r'^upload/$', views.upload_post, name='upload_post'),
     url(r'^accounts/edit/',views.edit_profile, name='edit_profile'),

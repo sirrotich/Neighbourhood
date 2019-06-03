@@ -23,6 +23,18 @@ def index(request):
 
     return render(request, 'index.html',{'posts':posts})
 
+@login_required(login_url='/accounts/login')
+def kampala(request):
+    posts = Post.get_all_posts()
+
+    return render(request, 'kampala.html',{'posts':posts})
+
+@login_required(login_url='/accounts/login')
+def capetown(request):
+    posts = Post.get_all_posts()
+
+    return render(request, 'capetown.html',{'posts':posts})
+
 def signup(request):
     if request.user.is_authenticated():
         return redirect('index')
